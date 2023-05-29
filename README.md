@@ -1,5 +1,5 @@
 # hr_management
-Features:
+**Features:**
 
 This app features all the latest tools and practices in web development!
 
@@ -9,7 +9,7 @@ This app features all the latest tools and practices in web development!
 
 Javascript — Open-source scripting language
 
-Getting started:
+**Getting started:**
 
 1)open the code in Vs code 
 
