@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> {% include 'cdnlines.html' %}
+    <!--bootstrap cdn lines -->
+    <title>EMPLOYEE_DETAILS</title>
+
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+        
+        #emp_form {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 30px;
+            border: 2px solid #ccc;
+            border-radius: 20px;
+            background-color: #fff;
+        }
+        
+        label {
+            margin-top: 10px;
+            color: #333;
+        }
+        
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            margin-top: 5px;
+            border-radius: 20px;
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #ccc;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        
+        #login {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form method="POST" id="emp_form">
+                    {% csrf_token %}
+
+                    <label for="eid">EID:</label>
+                    <input type="number" id="eid" placeholder="EMPLOYEE ID" class="form-control" name='eid' value="{{ last_employee_id }}" required min="1">
+
+                    <label for="ename">EMPLOYEE NAME:</label>
+                    <input type="text" id="ename" placeholder='EMPLOYEE NAME' class="form-control" name='ename' required>
+
+                    <label for="doj">DOJ:</label>
+                    <input type="date" id="doj" placeholder="DATE OF JOINING" class="form-control" name='doj' required>
+
+                    <label for="esal">EXPECTED SALARY:</label>
+                    <input type="number" id="esal" placeholder="EXPECTED SALARY" class="form-control" name='esal' required min="1">
+
+                    <label for="prevexp">PREVIOUS EXPERIENCE:</label>
+                    <input type="text" id="prevexp" placeholder="PREVIOUS EXPERIENCE" class="form-control" name='prevexp' required>
+
+                    <label for="desg">DESIGNATION:</label>
+                    <input type="text" id="desg" placeholder="DESIGNATION" class="form-control" name='desg' required>
+
+                    <center>
+                        <input type="submit" value="SUBMIT" class="btn btn-success mt-3" style="border-radius: 20px;">
+                        <input type="reset" value="CLEAR" class="btn btn-danger mt-3" style="border-radius: 20px;">
+                    </center>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        // Set the next employee ID in the input field
+        document.getElementById("eid").value = parseInt("{{ last_employee_id }}") + 1;
+
+        window.history.forward();
+
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>

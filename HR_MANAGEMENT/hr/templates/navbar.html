@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light text-dark">
+    <img src="https://www.brightcomgroup.com/wp-content/uploads/2021/02/logo.png" alt="">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="height:20px;">
+            <li class="nav-item">
+                <a class="nav-link  text-dark" href="{% url 'form' %}" style="border-radius:15px; margin-left:20px; margin-top:-10px; font-weight:800; font-size:18px;" target="_blank">EMPLOYEE FORM</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link  ml-3 text-dark" href="{% url 'details' %}" style="border-radius:15px; margin-top:-10px; font-weight:800; font-size:18px;" target="_blank">EMPLOYEE DETAILS</a>
+            </li>
+            <li class="nav-item">
+                <h3 style="margin-left:600px;">Hi {{ request.user |capfirst }} </h3>
+                <!--to display the user who logged in to the page-->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link ml-3 text-dark" href="{% url 'loginpage' %}" style="border-radius:15px; font-weight:600;">LOGOUT</a>
+            </li>
+        </ul>
+    </div>
+</nav>

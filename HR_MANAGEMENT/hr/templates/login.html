@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% include 'cdnlines.html' %}
+    <!--bootstrap cdn lines -->
+    <title>Document</title>
+
+    <!--styling for form-->
+    <style>
+        form {
+            border: 2px solid black;
+            margin-top: 150px;
+            border-radius: 20px;
+        }
+        
+        label {
+            color: black;
+            font-size: 20px;
+        }
+        
+        input[name] {
+            margin-top: -5px;
+        }
+    </style>
+    <img src="https://www.brightcomgroup.com/wp-content/uploads/2021/02/logo.png">
+    <hr color="black" size="5">
+</head>
+
+<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+
+    <div class="container">
+        <!--creating division for form-->
+        <div class="row">
+            <div class="offset-md-3 col-md-6">
+                <form method="POST" class="px-3 py-3 ">
+                    <!-- creating login form-->
+                    {% csrf_token %}
+                    <h2 class="text-center">Login</h2>
+                    <hr color="black">
+                    <label>Username:</label>
+                    <input type="text" placeholder="username" name="username" class="form-control" style="border-radius: 10px;" required>
+                    <label>Password:</label>
+                    <input type="password" placeholder="password" name="password" class="form-control" style="border-radius: 10px;" required>
+                    <center>
+                        <input type="submit" value="Login" class="btn btn-success mt-3 text-white " style="border-radius: 10px; font-weight:600; font-size:18px;">
+                        <input type="reset" value="Clear" class="btn bg-danger mt-3 ml-3 text-white" style="border-radius: 10px; font-weight:600;font-size:18px;">
+                    </center>
+                    {% include 'alerts.html' %}
+                    <!--including alerts.html file in this file-->
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--restricting the page to redirect previous page-->
+    <script type="text/javascript">
+        window.history.forward();
+
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+
+
+</body>
+
+</html>
